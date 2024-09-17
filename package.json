@@ -1,0 +1,81 @@
+{
+  "name": "intrucept-appsecops",
+  "displayName": "Intrucept AppSecOps",
+  "description": "SAST and SCA Plugin by Intrucept",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.92.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:intruceptScans",
+    "onCommand:sast-scan.performScan",
+    "onCommand:sca-scan.performScan"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "views": {
+      "explorer": [
+        {
+          "id": "intruceptScans",
+          "name": "Intrucept Scans"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "intruceptScans.refreshEntry",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "sast-scan.performScan",
+        "title": "Perform SAST Scan"
+      },
+      {
+        "command": "sca-scan.performScan",
+        "title": "Perform SCA Scan"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "intruceptScans.refreshEntry",
+          "when": "view == intruceptScans",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "sast-scan.performScan",
+          "group": "navigation"
+        },
+        {
+          "command": "sca-scan.performScan",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.92.0",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.4.0",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "axios": "^1.7.3",
+    "form-data": "^4.0.0"
+  }
+}
