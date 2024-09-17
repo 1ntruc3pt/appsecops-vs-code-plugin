@@ -3,6 +3,8 @@
   "displayName": "Intrucept AppSecOps",
   "description": "SAST and SCA Plugin by Intrucept",
   "version": "0.0.1",
+  "publisher": "IntruceptPrivateLimited",
+  "repository":"https://github.com/1ntruc3pt/appsecops-vs-code-plugin",
   "engines": {
     "vscode": "^1.92.0"
   },
